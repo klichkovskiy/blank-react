@@ -6,7 +6,7 @@ import { MainPage } from './pages/main';
 
 import './index.css';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
     <React.StrictMode>
         <HashRouter>
