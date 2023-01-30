@@ -13,14 +13,16 @@ describe('Get task test', () => {
         });
 
         it('test layout booking page and existence of all fields', () => {
-            cy.get('[data-test-id=button-reserve]').first().click()
+            cy.get('[data-test-id=button-reserve]').first().click();
+            cy.url().should('include', '/reserve');
             cy.get('[data-test-id=name]').should('exist');
             cy.get('[data-test-id=tel]').should('exist');
             cy.get('[data-test-id=email]').should('exist');
         });
 
         it('checking for valid name entry', () => {
-            cy.get('[data-test-id=button-reserve]').first().click()
+            cy.get('[data-test-id=button-reserve]').first().click();
+            cy.url().should('include', '/reserve');
             cy.get('[data-test-id=name]').type('аб').should('have.value', 'аб');
             cy.contains('Неверный формат ввода имени');
             cy.get('[data-test-id=name]').type('вгдежзклмнопрст');
@@ -37,7 +39,8 @@ describe('Get task test', () => {
         })
 
         it('checking for valid tel entry', () => {
-            cy.get('[data-test-id=button-reserve]').first().click()
+            cy.get('[data-test-id=button-reserve]').first().click();
+            cy.url().should('include', '/reserve');
             cy.get('[data-test-id=tel]').type('+3752212312312').should('have.value', '+3752212312312');
             cy.contains('Неверный формат ввода телефона');
             cy.get('[data-test-id=tel]').clear();
@@ -52,7 +55,8 @@ describe('Get task test', () => {
         })
 
         it('checking for valid email entry', () => {
-            cy.get('[data-test-id=button-reserve]').first().click()
+            cy.get('[data-test-id=button-reserve]').first().click();
+            cy.url().should('include', '/reserve');
             cy.get('[data-test-id=email]').type('abc').should('have.value', 'abc');
             cy.contains('Неверный формат email');
             cy.get('[data-test-id=email]').clear();
@@ -72,7 +76,8 @@ describe('Get task test', () => {
         })
 
         it('checking for valid data entry', () => {
-            cy.get('[data-test-id=button-reserve]').first().click()
+            cy.get('[data-test-id=button-reserve]').first().click();
+            cy.url().should('include', '/reserve');
             cy.get('[data-test-id=name]').type('абвгде');
             cy.get('[data-test-id=tel]').type('+3753312312312');
             cy.get('[data-test-id=email]').type('abc@abc.abc');
